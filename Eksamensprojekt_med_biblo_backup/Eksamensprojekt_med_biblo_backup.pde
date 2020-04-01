@@ -64,15 +64,28 @@ void draw(){//dette er en konstant void, som kører 60 gange i sekunder. Medmind
           //Derefter skriver den ud dens enhed nemlig +"mol" og dens placering derefter.
           String atommer = Atommasse.get(taeller);//Her gemmes værdien så den kan blive konverteret og husket-imens programmet kører til at blive en float så det kan blive divideret med massen (herunder massedata).
            atommertalhusk =Float.parseFloat(atommer);//konvertering.
-         
+         /////////////////Herunder er mine nytteløse forsøg til at lave Efter Symbolatom i tekstfeltet.
   
-  //if(taeller== -1){
-  //if(Atomnummer.hasValue(tekst)){
-  //for(int j=0; j < Atomnummer.size(); j++){
-    //String Hukommelse = Atomnummer.get(j);
-    //if(Hukommelse.equals(tekst)){
-      //taeller=j;
-      //println(Symbolatom.get(taeller));
+//String sym = atommer+"_";
+         //StringBuilder symbol = new StringBuilder();
+         //String nummer = "";
+         //for(int i=0; i < tekst.length();i++){
+           //char symvaerdi = sym.charAt(i);
+           //int talefter =1;
+           
+           ///// Eksistere den?
+          //tekst.charAt(index);
+           
+           //int d=1;
+           //if(j < tekst.length -1) j++){
+             
+           //if(bogstav == '_'){
+             
+           
+           //if ((key >= '1' && key <= '9') || key == '_') {
+           //analyser=key;
+           //massedata=massedata*key;
+           //println(key);
   
   }
   }
