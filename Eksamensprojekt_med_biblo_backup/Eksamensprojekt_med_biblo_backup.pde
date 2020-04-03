@@ -1,21 +1,26 @@
-//ArrayList<Data> data = new ArrayList<Data>();
-
-String tekst;
+String tal;
+String tekst="";
 String massevaerdi;
 float massedata;
 float atommertalhusk;
-//Datatast datatast1 = new Datatast(335,95);
-//Datatast datatast2 = new Datatast(700,95);
-
+FloatList inventar;
+//char bogstav;
+//int talefter=0;
+float talvaerdi;
+StringList Symbolatomhusker = new StringList();
+StringList Rawdata = new StringList();
+StringList Vaerdiliste = new StringList();
 
 import controlP5.*;// importeret fra biblitoteket 
+import java.util.regex.Matcher.*;//henter disse fra bibloteket.
+import java.util.regex.Pattern.*;
+import java.util.regex.*;
+
 ControlP5 cp5;//sætter op en variabel.
 
 void setup(){//Denne void kører en gang, fra starten af.
   size(1000,500);//Dette laver et vinduet af (1000 pixels ad x aksen og 500 pixels ad y-aksen.
   background(71,113,72);//Dette sætter stemningen og baggrunden.
-  //data.add(datatast1);
-//data.add(datatast2);
 rectMode(CENTER);
 fill(255);//Farver rectanglerne vide.
 rect(335,233,390,70,6);//Skaber en rektangel.
@@ -45,68 +50,132 @@ cp5.addButton("masse")
 .setPosition(750,163)
 .setSize(183,35)
 ;
-cp5.addTextfield("Textfelt")//Dette sætter et tekstfelt fra bibloteket, herunder størrelse af textfelt og position.
-.setPosition(145,13)
-.setSize(383,62)
+cp5.addButton("next_stof")
+.setPosition(650,23)
+.setSize(313,55)
 ;
-
+cp5.addTextfield("Textfelt")//Dette sætter et tekstfelt fra bibloteket, herunder størrelse af textfelt og position.
+.setCaptionLabel("Stof & masse")
+.setPosition(145,13)
+.setSize(283,62)
+.setAutoClear(false)
+;
+cp5.addTextfield("Textfelttal")//Dette sætter et tekstfelt fra bibloteket, herunder størrelse af textfelt og position.
+.setCaptionLabel("Tal")
+.setPosition(445,45)
+.setSize(83,62)
+.setAutoClear(false)
+;
 tabledata();//dette gør at ved startup loader den kommanden tabledata og gør det muligt at skabe en void der hedder tabledata.
 }
 void draw(){//dette er en konstant void, som kører 60 gange i sekunder. Medmindre Kommanden frameRate(x) er brugt. 
-  if(taeller==-1){//Her appelere den til at hvis taelleren er i, så starter programmet.
+  if(taeller==-1){//Her appelere den til at hvis taelleren er -5, så starter programmet.
     if(Symbolatom.hasValue(tekst)){//Her appelere den til at se tekstfeltet og hente Value hvis Tekstsfelte har noget som StringListen  Symbolatom indeholder.
       for(int j=0; j < Symbolatom.size();j++){//Dette er et forlob der tæller kolloner herunder tæller dens size som er på 118 Strings.
         String Hukommelse =Symbolatom.get(j);//Her laves der en variable der gemmes som Symbolsatoms for-loop værdi.
         if(Hukommelse.equals(tekst)){//Her appelere hvis For loopets værdi som er gemt er det samme som det der står i tekstfeltet.
           taeller=j;//Så er det sandt altså Taelleren har den rigtige for loop værdi.
           println(Atommasse.get(taeller));// Dette bliver brugt til at tjekke om programmet virker ved at sætte Tekstfeltets værdi i Console.
-          text(Atommasse.get(taeller)+"mol",280,393);//Dette henter værdien fra tekstfeltet og hvis det passer henter den Stringliste [3] som er atommassen der passer i sizen af Symbolatom Det vil sige. Hvis der er tastet "H" vil den skrive H's atommasse ud nemlig 1.007.
+          //text(Atommasse.get(taeller)+"mol",280,393);//Dette henter værdien fra tekstfeltet og hvis det passer henter den Stringliste [3] som er atommassen der passer i sizen af Symbolatom Det vil sige. Hvis der er tastet "H" vil den skrive H's atommasse ud nemlig 1.007.
           //Derefter skriver den ud dens enhed nemlig +"mol" og dens placering derefter.
           String atommer = Atommasse.get(taeller);//Her gemmes værdien så den kan blive konverteret og husket-imens programmet kører til at blive en float så det kan blive divideret med massen (herunder massedata).
-           atommertalhusk =Float.parseFloat(atommer);//konvertering.
-         /////////////////Herunder er mine nytteløse forsøg til at lave Efter Symbolatom i tekstfeltet.
-  
-//String sym = atommer+"_";
-         //StringBuilder symbol = new StringBuilder();
-         //String nummer = "";
-         //for(int i=0; i < tekst.length();i++){
-           //char symvaerdi = sym.charAt(i);
-           //int talefter =1;
+           atommertalhusk =Float.parseFloat(atommer);//konvertering.(molarmasse)
+         //////////////////////////////////////////////////////// REGNESEKTION.
+        //et for looop der kørrer igennem Sybloatomhusker. plusser vørdier og printer molarmassen
+         
+         //int start = Hukommelse.indexOf("atommer")+2;
+         //int end = Hukommelse.indexOf("_", start);
+         //String apples = Hukommelse.substring(start, end);
+         //int ingenfundet = int(atommer);
+         
+         //String givmigtekstmellem(String s, String start, String slut){
+           //int startIndex = s.indexOf(start);
+           //if(startIndex== -1) {
+             //return "-";
+           //}
+           //startIndex +=start.length();
            
-           ///// Eksistere den?
-          //tekst.charAt(index);
+          //int slutIndex = s.indexOf(slut,startIndex);
+          //if(slutIndex == -1) {
+            //return " ";
+          //}
+          //return s.substring(startIndex,slutIndex);
+         //}
+ 
+    
+         //String REGEX= "*b";
+         //String[] args;
+         //String REPLACE = "-";
+         //Pattern n = Pattern.compile(REGEX);
+         //Matcher m = n.matcher(tekst);
+        //StringBuffer sb = new StringBuffer();
+        //while(m.find()) {
+         //m.appendReplacement(sb, REPLACE);         
+        //m.appendTail(sb);
+        //println(sb.toString());
+        
+         
+         }
+           }                 
+           }
+           }
+    //}  
+  }
            
-           //int d=1;
-           //if(j < tekst.length -1) j++){
-             
-           //if(bogstav == '_'){
-             
-           
-           //if ((key >= '1' && key <= '9') || key == '_') {
-           //analyser=key;
-           //massedata=massedata*key;
-           //println(key);
-  
-  }
-  }
-  }
-  }
-}
+
 void masse(){
   massevaerdi=cp5.get(Textfield.class,"Textfelt").getText();
   float massedata = Float.parseFloat(massevaerdi);
- text("Dit indtastede masse:"+massevaerdi+"g",553,240);
+text("Indtastede masse:"+massevaerdi+"g",553,240);
  text(massedata/ atommertalhusk+"g/mol",688,393);
- //println(massedata / taeller);
- //text( massedata / (Atommasse.get(taeller))+"g/mol",250,250);
- //print(massedata);
+ 
 }
+
 
 void STOF(){ 
 tekst=cp5.get(Textfield.class,"Textfelt").getText();
-text("Din indtaste stof:"+tekst,150,240);
-//print(tekst);
-
-
-
+////Bergner Molmassen. plusse indhold i stinglist molmasse input.
+tal=cp5.get(Textfield.class,"Textfelttal").getText();
+//print(tal);
+text("Dit indtaste stof:"+tekst,150,240);
+   talvaerdi = Float.parseFloat(tal);
+  //println(talvaerdi);
+  //nytalvaerdi = talvaerdi*atommertalhusk;
+  //println(talvaerdi);
+  
+  //float nytalvaerdi=talvaerdi*massedata;
+  //print(talvaerdi);
+  
+//} else if(talvaerdi=='0');
+  //talvaerdi=talvaerdi*1;
+ 
+}
+void next_stof(){
+  ////hent stof værdier. gem i stringlist.
+  
+  text(atommertalhusk* talvaerdi+"mol",280,393);
+  
+  float nytalvaerdi = atommertalhusk* talvaerdi;// Her husker den der førstes stofs værdi.
+  //println(nytalvaerdi);
+  inventar = new FloatList();
+  inventar.append(nytalvaerdi);
+  //println(inventar);
+  
+  cp5.get(Textfield.class,"Textfelt").clear();
+  cp5.get(Textfield.class,"Textfelttal").clear();
+  taeller=-1;
+  float [] sorteretinventar = inventar.array();
+  println(sorteretinventar);
+  //float nytalvaerdi2 = atommertalhusk*talvaerdi;
+  //inventar.append(nytalvaerdi2);
+  println(inventar);
+  tekst="";
+  tal="";
+  //cp5.Textfield.setText(.clear();
+  String Input =cp5.get(Textfield.class,"Textfelt").getText();
+  Rawdata.append(Input);
+  //tekst=" ";
+  //tal=" ";
+  
+  //Symbolatomhusker.append(cp5.get(
 }
